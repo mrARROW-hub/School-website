@@ -1,35 +1,132 @@
 import React from 'react';
+import {
+  ISBShape,
+  ISBWordBadge,
+  ISBFooterIconsRow,
+  ISBScrollPopEdgeShape,
+  ISBShapeType,
+} from './DecorativeShapes';
 
 export const WireframeSections: React.FC = () => {
+  const brandPillars: { type: ISBShapeType; name: string; desc: string; color: string }[] = [
+    { type: 'purple-stairs', name: 'Progress', desc: 'Pre-K through Class XII continuum', color: '#861fce' },
+    { type: 'pink-circle', name: 'Community', desc: 'Inclusivity, empathy, & belonging', color: '#fe76b4' },
+    { type: 'blue-hourglass', name: 'Intellect', desc: 'Academic inquiry & critical rigor', color: '#0064ec' },
+    { type: 'yellow-bars', name: 'Expression', desc: 'Diversity of talents & vibrant voice', color: '#FFC548' },
+    { type: 'green-flower', name: 'Flourishing', desc: 'Holistic character & moral grounding', color: '#00b273' },
+    { type: 'red-triangle', name: 'Empowerment', desc: 'Courage, leadership, & forward drive', color: '#FF3D37' },
+  ];
+
   return (
     <>
       {/* =========================================================================
+          ISB-INSPIRED VALUES & DECORATIVE SHAPES RIBBON
+          Replicating the iconic visual language from isb.be
+          ========================================================================= */}
+      <section className="border-b border-[#e5e5e5] bg-[#fafafa]/90 py-5 transition-colors">
+        <div className="wireframe-container flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-2.5 text-center md:text-left">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#444] bg-white px-3 py-1 rounded-full border border-[#ddd] shadow-xs">
+              Visual Language &amp; Pillars
+            </span>
+            <span className="text-xs text-[#666]">
+              Decorative shapes inspired by international school branding
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 sm:gap-5 flex-wrap justify-center">
+            {brandPillars.map((item, idx) => (
+              <div
+                key={idx}
+                className="group flex items-center gap-2 px-2.5 py-1 rounded-lg hover:bg-white hover:shadow-xs transition-all cursor-default"
+                title={`${item.name}: ${item.desc}`}
+              >
+                <div className="transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                  <ISBShape type={item.type} size={22} />
+                </div>
+                <span className="text-xs font-semibold text-[#333] hidden sm:inline group-hover:text-black transition-colors">
+                  {item.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
           2. OUR STORY — Where Values Meet Vision
           ========================================================================= */}
-      <section className="wireframe-section" id="story">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Our Story</div>
+      <section className="wireframe-section relative" id="story">
+        {/* Scroll-triggered edge pop shape (half pops out from right edge, 0 extra vertical space) */}
+        <ISBScrollPopEdgeShape shape="purple-stairs" align="right" topPosition="top-28 sm:top-36" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="pink-circle" size={14} />
+            <span>Our Story</span>
+            <ISBShape type="blue-hourglass" size={14} />
+          </div>
           <h2
-            className="wf-heading !text-[34px] font-fraunces text-[#111] leading-tight font-bold text-center sm:text-left break-words"
+            className="wf-heading !text-[34px] font-fraunces text-[#111] leading-tight font-bold text-center break-words"
             style={{ fontFamily: "'Fraunces', serif", fontSize: '34px' }}
           >
             where values meet vision.....
           </h2>
+
+          {/* ISB-Style Sentence with Inline Shapes */}
+          <div className="max-w-3xl mx-auto my-6 p-5 rounded-2xl bg-neutral-50 border border-neutral-200/80 shadow-xs text-center">
+            <p className="text-base sm:text-lg text-[#222] leading-relaxed">
+              We are an inclusive, value-grounded{' '}
+              <ISBWordBadge shape="blue-hourglass" label="Intellect & Rigor">
+                school
+              </ISBWordBadge>{' '}
+              in Chandigarh for{' '}
+              <ISBWordBadge shape="pink-circle" label="Community & Belonging">
+                students
+              </ISBWordBadge>{' '}
+              from Preschool through{' '}
+              <ISBWordBadge shape="purple-stairs" label="Continuous Learning">
+                Class XII
+              </ISBWordBadge>
+              , offering an immersive and culturally{' '}
+              <ISBWordBadge shape="green-flower" label="Flourishing Character">
+                rich
+              </ISBWordBadge>{' '}
+              education for{' '}
+              <ISBWordBadge shape="yellow-bars" label="Diverse Voices">
+                curious minds
+              </ISBWordBadge>{' '}
+              guided by{' '}
+              <ISBWordBadge shape="red-triangle" label="Empowerment & Purpose">
+                moral integrity
+              </ISBWordBadge>
+              .
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-base text-[#666] leading-relaxed mb-6">
                 Rooted in the educational philosophy of Dev Samaj, we believe true schooling shapes both intellect and conscience. For decades, our classrooms have been incubators of curiosity, resilience, and compassion.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-                <div className="p-4 border border-[#ccc] rounded">
+                <div className="p-4 border border-[#ccc] rounded bg-white hover:border-[#861fce] transition-colors group">
+                  <div className="mb-2">
+                    <ISBShape type="pink-circle" size={18} />
+                  </div>
                   <h4 className="font-semibold text-sm mb-1 text-[#222]">Moral Grounding</h4>
                   <p className="text-xs text-[#666]">Ethical foundations before academic ambition.</p>
                 </div>
-                <div className="p-4 border border-[#ccc] rounded">
+                <div className="p-4 border border-[#ccc] rounded bg-white hover:border-[#0064ec] transition-colors group">
+                  <div className="mb-2">
+                    <ISBShape type="blue-hourglass" size={18} />
+                  </div>
                   <h4 className="font-semibold text-sm mb-1 text-[#222]">Intellectual Depth</h4>
                   <p className="text-xs text-[#666]">Curiosity over rote learning, mastery over memorization.</p>
                 </div>
-                <div className="p-4 border border-[#ccc] rounded">
+                <div className="p-4 border border-[#ccc] rounded bg-white hover:border-[#FF3D37] transition-colors group">
+                  <div className="mb-2">
+                    <ISBShape type="red-triangle" size={18} />
+                  </div>
                   <h4 className="font-semibold text-sm mb-1 text-[#222]">Self-Reliance</h4>
                   <p className="text-xs text-[#666]">Equipping students to navigate a changing world independently.</p>
                 </div>
@@ -61,22 +158,32 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           3. THE LEARNING JOURNEY — Academics
           ========================================================================= */}
-      <section className="wireframe-section" id="journey">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Academics</div>
+      <section className="wireframe-section relative" id="journey">
+        {/* Scroll-triggered edge pop shape (half pops out from left edge, 0 extra vertical space) */}
+        <ISBScrollPopEdgeShape shape="blue-hourglass" align="left" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="purple-stairs" size={15} />
+            <span>Academics</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             The Learning Journey
           </h2>
-          <p className="max-w-2xl text-base text-[#666] mb-8 text-center sm:text-left">
+          <p className="max-w-2xl text-base text-[#666] mb-8 text-center mx-auto break-words">
             A continuous continuum of growth from the earliest steps of wonder to the confident leap into adulthood.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-            <div className="p-6 border border-[#ccc] rounded flex flex-col justify-between">
+            <div className="p-6 border border-[#ccc] rounded flex flex-col justify-between bg-white hover:border-[#fe76b4] hover:shadow-xs transition-all group">
               <div>
-                <div className="text-xs uppercase tracking-wider text-[#888] mb-1">01 &mdash; Foundation</div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs uppercase tracking-wider text-[#888]">01 &mdash; Foundation</span>
+                  <div className="transition-transform duration-300 group-hover:scale-125">
+                    <ISBShape type="pink-circle" size={24} />
+                  </div>
+                </div>
                 <h3 className="font-bold text-lg text-[#222] mb-1">Pre-Primary</h3>
                 <div className="text-xs text-[#666] mb-3">Nursery &ndash; KG</div>
                 <p className="text-sm text-[#666] leading-relaxed">Play-based discovery, sensorial development, foundational literacy, and social warmth.</p>
@@ -84,9 +191,14 @@ export const WireframeSections: React.FC = () => {
               <div className="mt-4 text-xs font-semibold text-[#222] pt-3 border-t border-[#eee]">Focus: Curiosity &amp; Expression</div>
             </div>
 
-            <div className="p-6 border border-[#ccc] rounded flex flex-col justify-between">
+            <div className="p-6 border border-[#ccc] rounded flex flex-col justify-between bg-white hover:border-[#00b273] hover:shadow-xs transition-all group">
               <div>
-                <div className="text-xs uppercase tracking-wider text-[#888] mb-1">02 &mdash; Exploration</div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs uppercase tracking-wider text-[#888]">02 &mdash; Exploration</span>
+                  <div className="transition-transform duration-300 group-hover:scale-125">
+                    <ISBShape type="green-flower" size={24} />
+                  </div>
+                </div>
                 <h3 className="font-bold text-lg text-[#222] mb-1">Primary</h3>
                 <div className="text-xs text-[#666] mb-3">Classes I &ndash; V</div>
                 <p className="text-sm text-[#666] leading-relaxed">Core academic fluency, environmental awareness, artistic exploration, and collaborative projects.</p>
@@ -94,9 +206,14 @@ export const WireframeSections: React.FC = () => {
               <div className="mt-4 text-xs font-semibold text-[#222] pt-3 border-t border-[#eee]">Focus: Breadth &amp; Confidence</div>
             </div>
 
-            <div className="p-6 border border-[#ccc] rounded flex flex-col justify-between">
+            <div className="p-6 border border-[#ccc] rounded flex flex-col justify-between bg-white hover:border-[#FFC548] hover:shadow-xs transition-all group">
               <div>
-                <div className="text-xs uppercase tracking-wider text-[#888] mb-1">03 &mdash; Deepening</div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs uppercase tracking-wider text-[#888]">03 &mdash; Deepening</span>
+                  <div className="transition-transform duration-300 group-hover:scale-125">
+                    <ISBShape type="yellow-bars" size={24} />
+                  </div>
+                </div>
                 <h3 className="font-bold text-lg text-[#222] mb-1">Middle School</h3>
                 <div className="text-xs text-[#666] mb-3">Classes VI &ndash; VIII</div>
                 <p className="text-sm text-[#666] leading-relaxed">Subject specialization, laboratory sciences, critical reading, debates, and competitive athletics.</p>
@@ -104,9 +221,14 @@ export const WireframeSections: React.FC = () => {
               <div className="mt-4 text-xs font-semibold text-[#222] pt-3 border-t border-[#eee]">Focus: Critical Thinking &amp; Discipline</div>
             </div>
 
-            <div className="p-6 border border-[#ccc] rounded flex flex-col justify-between">
+            <div className="p-6 border border-[#ccc] rounded flex flex-col justify-between bg-white hover:border-[#861fce] hover:shadow-xs transition-all group">
               <div>
-                <div className="text-xs uppercase tracking-wider text-[#888] mb-1">04 &mdash; Mastery</div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs uppercase tracking-wider text-[#888]">04 &mdash; Mastery</span>
+                  <div className="transition-transform duration-300 group-hover:scale-125">
+                    <ISBShape type="purple-stairs" size={24} />
+                  </div>
+                </div>
                 <h3 className="font-bold text-lg text-[#222] mb-1">Senior Secondary</h3>
                 <div className="text-xs text-[#666] mb-3">Classes IX &ndash; XII</div>
                 <p className="text-sm text-[#666] leading-relaxed">CBSE excellence, stream specialization (Science, Commerce, Humanities), career mentoring, and leadership.</p>
@@ -120,16 +242,21 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           4. WHERE LEARNING HAPPENS — Campus Facilities
           ========================================================================= */}
-      <section className="wireframe-section" id="campus">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Campus</div>
+      <section className="wireframe-section relative" id="campus">
+        {/* Scroll-triggered edge pop shape (half pops out from right edge, 0 extra vertical space) */}
+        <ISBScrollPopEdgeShape shape="green-flower" align="right" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="yellow-bars" size={15} />
+            <span>Campus</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             Where Learning Happens
           </h2>
-          <p className="max-w-2xl text-base text-[#666] text-center sm:text-left">
+          <p className="max-w-2xl text-base text-[#666] text-center mx-auto break-words">
             Purpose-built spaces that invite curiosity, discipline, and creative pursuit across every acre.
           </p>
           <div className="wf-img-placeholder my-8 h-[380px]">
@@ -164,41 +291,56 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           5. BEYOND THE CLASSROOM — Student Life
           ========================================================================= */}
-      <section className="wireframe-section" id="beyond">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Student Life</div>
+      <section className="wireframe-section relative" id="beyond">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="yellow-bars" align="left" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="green-flower" size={15} />
+            <span>Student Life</span>
+          </div>
           <h2
-            className="wf-heading font-crayon text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-center sm:text-left break-words"
+            className="wf-heading font-crayon text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-center break-words"
             style={{ fontFamily: "'DK Crayon Crumble', 'Cabin Sketch', cursive, sans-serif" }}
           >
             Beyond the Classroom
           </h2>
-          <p className="max-w-2xl text-base text-[#666]">
+          <p className="max-w-2xl text-base text-[#666] text-center mx-auto break-words">
             Character is forged as much on the pitch, stage, and easel as it is in the lecture hall.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-8">
-            <div className="p-4 border border-[#ccc] rounded text-center">
-              <div className="w-12 h-12 rounded-full wf-placeholder mx-auto mb-3">ICON</div>
+            <div className="p-4 border border-[#ccc] rounded text-center bg-white hover:border-[#FF3D37] hover:shadow-xs transition-all group">
+              <div className="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110">
+                <ISBShape type="red-triangle" size={26} />
+              </div>
               <h4 className="font-semibold text-sm text-[#222] mb-1">Sports</h4>
               <p className="text-xs text-[#666]">Football, basketball, cricket, badminton, athletics, yoga.</p>
             </div>
-            <div className="p-4 border border-[#ccc] rounded text-center">
-              <div className="w-12 h-12 rounded-full wf-placeholder mx-auto mb-3">ICON</div>
+            <div className="p-4 border border-[#ccc] rounded text-center bg-white hover:border-[#00b273] hover:shadow-xs transition-all group">
+              <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110">
+                <ISBShape type="green-flower" size={26} />
+              </div>
               <h4 className="font-semibold text-sm text-[#222] mb-1">Arts &amp; Culture</h4>
               <p className="text-xs text-[#666]">Painting, sculpture, theatre, debate, creative writing.</p>
             </div>
-            <div className="p-4 border border-[#ccc] rounded text-center">
-              <div className="w-12 h-12 rounded-full wf-placeholder mx-auto mb-3">ICON</div>
+            <div className="p-4 border border-[#ccc] rounded text-center bg-white hover:border-[#FFC548] hover:shadow-xs transition-all group">
+              <div className="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110">
+                <ISBShape type="yellow-bars" size={26} />
+              </div>
               <h4 className="font-semibold text-sm text-[#222] mb-1">Music &amp; Dance</h4>
               <p className="text-xs text-[#666]">Classical, contemporary, choir, instrumental orchestra.</p>
             </div>
-            <div className="p-4 border border-[#ccc] rounded text-center">
-              <div className="w-12 h-12 rounded-full wf-placeholder mx-auto mb-3">ICON</div>
+            <div className="p-4 border border-[#ccc] rounded text-center bg-white hover:border-[#0064ec] hover:shadow-xs transition-all group">
+              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110">
+                <ISBShape type="blue-hourglass" size={26} />
+              </div>
               <h4 className="font-semibold text-sm text-[#222] mb-1">Clubs &amp; Societies</h4>
               <p className="text-xs text-[#666]">Robotics, eco club, editorial board, quiz bowl, MUN.</p>
             </div>
-            <div className="p-4 border border-[#ccc] rounded text-center col-span-2 sm:col-span-1">
-              <div className="w-12 h-12 rounded-full wf-placeholder mx-auto mb-3">ICON</div>
+            <div className="p-4 border border-[#ccc] rounded text-center col-span-2 sm:col-span-1 bg-white hover:border-[#861fce] hover:shadow-xs transition-all group">
+              <div className="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110">
+                <ISBShape type="purple-stairs" size={26} />
+              </div>
               <h4 className="font-semibold text-sm text-[#222] mb-1">Competitions</h4>
               <p className="text-xs text-[#666]">Inter-school tournaments, Olympiads, state leagues.</p>
             </div>
@@ -209,21 +351,26 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           6. GULDAASTA — Signature Annual Event
           ========================================================================= */}
-      <section className="wireframe-section" id="guldaasta">
-        <div className="wireframe-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="wireframe-section relative" id="guldaasta">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="pink-arch" align="right" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="pink-arch" size={15} />
+            <span>Signature Annual Event</span>
+          </div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            Guldaasta &mdash; A Celebration of Togetherness
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
             <div>
-              <div className="wf-label text-center sm:text-left">Signature Annual Event</div>
-              <h2
-                className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
-                style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
-              >
-                Guldaasta &mdash; A Celebration of Togetherness
-              </h2>
-              <p className="text-base text-[#666] leading-relaxed mb-6 text-center sm:text-left">
+              <p className="text-base text-[#666] leading-relaxed mb-6 text-left">
                 Our landmark annual showcase where every child&apos;s voice, talent, and culture come together in an unforgettable evening of performance, exhibition, and shared pride.
               </p>
-              <div className="flex gap-8 my-6 justify-center sm:justify-start">
+              <div className="flex gap-8 my-6 justify-start">
                 <div>
                   <strong className="block text-2xl font-bold text-[#222]">1,200+</strong>
                   <span className="text-xs text-[#666]">Student Performers</span>
@@ -237,7 +384,7 @@ export const WireframeSections: React.FC = () => {
                   <span className="text-xs text-[#666]">Unforgettable Night</span>
                 </div>
               </div>
-              <div className="text-center sm:text-left">
+              <div className="text-left">
                 <a href="#guldaasta-details" className="wf-cta">
                   LEARN ABOUT GULDAASTA
                 </a>
@@ -257,11 +404,16 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           7. MAKING US PROUD — Achievements
           ========================================================================= */}
-      <section className="wireframe-section" id="achievements">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Achievements</div>
+      <section className="wireframe-section relative" id="achievements">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="red-triangle" align="left" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="red-triangle" size={15} />
+            <span>Achievements</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             Making Us Proud
@@ -336,65 +488,70 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           8. WHAT'S HAPPENING — School Updates & Circulars
           ========================================================================= */}
-      <section className="wireframe-section" id="updates">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">News &amp; Updates</div>
+      <section className="wireframe-section relative" id="updates">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="purple-stairs" align="right" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="blue-hourglass" size={15} />
+            <span>News &amp; Updates</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             What&apos;s Happening
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
             <div className="lg:col-span-2 flex flex-col gap-4">
-              <div className="flex gap-4 p-4 border border-[#ccc] rounded items-center">
-                <div className="wf-img-placeholder w-28 h-20 flex-shrink-0">THUMB</div>
-                <div>
+              <div className="flex flex-col sm:flex-row gap-4 p-4 border border-[#ccc] rounded items-start sm:items-center">
+                <div className="wf-img-placeholder !w-full sm:!w-28 !h-20 shrink-0">THUMB</div>
+                <div className="min-w-0 flex-1">
                   <div className="text-xs text-[#888]">12 Feb 2025 &bull; Event</div>
-                  <h4 className="font-semibold text-sm text-[#222]">Annual Sports Meet 2025 Announced</h4>
-                  <p className="text-xs text-[#666]">Three days of athletic competition, parade, and awards ceremony commencing March 1.</p>
+                  <h4 className="font-semibold text-sm text-[#222] break-words mt-0.5">Annual Sports Meet 2025 Announced</h4>
+                  <p className="text-xs text-[#666] break-words mt-1">Three days of athletic competition, parade, and awards ceremony commencing March 1.</p>
                 </div>
               </div>
-              <div className="flex gap-4 p-4 border border-[#ccc] rounded items-center">
-                <div className="wf-img-placeholder w-28 h-20 flex-shrink-0">THUMB</div>
-                <div>
+              <div className="flex flex-col sm:flex-row gap-4 p-4 border border-[#ccc] rounded items-start sm:items-center">
+                <div className="wf-img-placeholder !w-full sm:!w-28 !h-20 shrink-0">THUMB</div>
+                <div className="min-w-0 flex-1">
                   <div className="text-xs text-[#888]">28 Jan 2025 &bull; Academic</div>
-                  <h4 className="font-semibold text-sm text-[#222]">CBSE Board Exam Preparation Workshops Underway</h4>
-                  <p className="text-xs text-[#666]">Special doubt-clearing sessions and mock test series scheduled for Classes X and XII.</p>
+                  <h4 className="font-semibold text-sm text-[#222] break-words mt-0.5">CBSE Board Exam Preparation Workshops Underway</h4>
+                  <p className="text-xs text-[#666] break-words mt-1">Special doubt-clearing sessions and mock test series scheduled for Classes X and XII.</p>
                 </div>
               </div>
-              <div className="flex gap-4 p-4 border border-[#ccc] rounded items-center">
-                <div className="wf-img-placeholder w-28 h-20 flex-shrink-0">THUMB</div>
-                <div>
+              <div className="flex flex-col sm:flex-row gap-4 p-4 border border-[#ccc] rounded items-start sm:items-center">
+                <div className="wf-img-placeholder !w-full sm:!w-28 !h-20 shrink-0">THUMB</div>
+                <div className="min-w-0 flex-1">
                   <div className="text-xs text-[#888]">15 Jan 2025 &bull; Celebration</div>
-                  <h4 className="font-semibold text-sm text-[#222]">Dev Samaj Foundation Day Celebrations</h4>
-                  <p className="text-xs text-[#666]">Reflecting on our heritage with community service drives and special morning assembly.</p>
+                  <h4 className="font-semibold text-sm text-[#222] break-words mt-0.5">Dev Samaj Foundation Day Celebrations</h4>
+                  <p className="text-xs text-[#666] break-words mt-1">Reflecting on our heritage with community service drives and special morning assembly.</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 border border-[#ccc] rounded">
+            <div className="p-4 border border-[#ccc] rounded flex flex-col justify-start">
               <h3 className="font-bold text-sm text-[#222] mb-4 pb-2 border-b border-[#ccc]">Circulars &amp; Notices</h3>
               <div className="flex flex-col gap-3">
                 <div className="pb-2 border-b border-[#eee]">
                   <div className="text-xs text-[#888]">08 Feb 2025</div>
-                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer">Date sheet for Annual Examinations (Classes VI&ndash;IX, XI)</div>
+                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer break-words">Date sheet for Annual Examinations (Classes VI&ndash;IX, XI)</div>
                 </div>
                 <div className="pb-2 border-b border-[#eee]">
                   <div className="text-xs text-[#888]">02 Feb 2025</div>
-                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer">Advisory on winter uniform &amp; school timings</div>
+                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer break-words">Advisory on winter uniform &amp; school timings</div>
                 </div>
                 <div className="pb-2 border-b border-[#eee]">
                   <div className="text-xs text-[#888]">20 Jan 2025</div>
-                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer">Parent-Teacher Meeting schedule &amp; slot booking</div>
+                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer break-words">Parent-Teacher Meeting schedule &amp; slot booking</div>
                 </div>
                 <div className="pb-2 border-b border-[#eee]">
                   <div className="text-xs text-[#888]">10 Jan 2025</div>
-                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer">Fee deposit deadline for Quarter IV &mdash; Reminder</div>
+                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer break-words">Fee deposit deadline for Quarter IV &mdash; Reminder</div>
                 </div>
                 <div>
                   <div className="text-xs text-[#888]">05 Jan 2025</div>
-                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer">Transport route adjustment notice &mdash; Route 7 &amp; 12</div>
+                  <div className="text-xs font-medium text-[#222] hover:underline cursor-pointer break-words">Transport route adjustment notice &mdash; Route 7 &amp; 12</div>
                 </div>
               </div>
             </div>
@@ -405,11 +562,16 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           9. THROUGH OUR LENS — Gallery Mosaic
           ========================================================================= */}
-      <section className="wireframe-section" id="gallery">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Gallery</div>
+      <section className="wireframe-section relative" id="gallery">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="yellow-bars" align="left" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="green-flower" size={15} />
+            <span>Gallery</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             Through Our Lens
@@ -430,17 +592,22 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           10. THE PEOPLE BEHIND THE LEARNING — Educators
           ========================================================================= */}
-      <section className="wireframe-section" id="educators">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Faculty</div>
+      <section className="wireframe-section relative" id="educators">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="green-flower" align="right" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="purple-stairs" size={15} />
+            <span>Faculty</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             The People Behind the Learning
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-            <div className="border border-[#ccc] rounded overflow-hidden text-center">
+            <div className="border border-[#ccc] rounded overflow-hidden text-center bg-white">
               <div className="wf-img-placeholder h-56">FACULTY PHOTO</div>
               <div className="p-4">
                 <h4 className="font-bold text-sm text-[#222]">Dr. S. Sharma</h4>
@@ -449,7 +616,7 @@ export const WireframeSections: React.FC = () => {
               </div>
             </div>
 
-            <div className="border border-[#ccc] rounded overflow-hidden text-center">
+            <div className="border border-[#ccc] rounded overflow-hidden text-center bg-white">
               <div className="wf-img-placeholder h-56">FACULTY PHOTO</div>
               <div className="p-4">
                 <h4 className="font-bold text-sm text-[#222]">Mrs. R. Kaur</h4>
@@ -458,7 +625,7 @@ export const WireframeSections: React.FC = () => {
               </div>
             </div>
 
-            <div className="border border-[#ccc] rounded overflow-hidden text-center">
+            <div className="border border-[#ccc] rounded overflow-hidden text-center bg-white">
               <div className="wf-img-placeholder h-56">FACULTY PHOTO</div>
               <div className="p-4">
                 <h4 className="font-bold text-sm text-[#222]">Mr. A. Verma</h4>
@@ -467,7 +634,7 @@ export const WireframeSections: React.FC = () => {
               </div>
             </div>
 
-            <div className="border border-[#ccc] rounded overflow-hidden text-center">
+            <div className="border border-[#ccc] rounded overflow-hidden text-center bg-white">
               <div className="wf-img-placeholder h-56">FACULTY PHOTO</div>
               <div className="p-4">
                 <h4 className="font-bold text-sm text-[#222]">Mrs. P. Gupta</h4>
@@ -482,17 +649,22 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           11. BEYOND DEV SAMAJ — Community & Alumni
           ========================================================================= */}
-      <section className="wireframe-section" id="community">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Community</div>
+      <section className="wireframe-section relative" id="community">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="pink-circle" align="left" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="pink-circle" size={15} />
+            <span>Community</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             Beyond Dev Samaj
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-            <div className="lg:col-span-2 border border-[#ccc] rounded overflow-hidden">
+            <div className="lg:col-span-2 border border-[#ccc] rounded overflow-hidden bg-white">
               <div className="wf-img-placeholder h-64">ALUMNI SPOTLIGHT PHOTO</div>
               <div className="p-6">
                 <blockquote className="italic text-base text-[#444] mb-3 leading-relaxed">
@@ -505,15 +677,15 @@ export const WireframeSections: React.FC = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="p-4 border border-[#ccc] rounded">
+              <div className="p-4 border border-[#ccc] rounded bg-white">
                 <h4 className="font-bold text-sm text-[#222] mb-1">Parent Council</h4>
                 <p className="text-xs text-[#666]">Active collaboration through regular dialogue, volunteer initiatives, and school policy feedback.</p>
               </div>
-              <div className="p-4 border border-[#ccc] rounded">
+              <div className="p-4 border border-[#ccc] rounded bg-white">
                 <h4 className="font-bold text-sm text-[#222] mb-1">Alumni Network</h4>
                 <p className="text-xs text-[#666]">A global fraternity of 15,000+ graduates across medicine, civil services, tech, entrepreneurship, and the arts.</p>
               </div>
-              <div className="p-4 border border-[#ccc] rounded">
+              <div className="p-4 border border-[#ccc] rounded bg-white">
                 <h4 className="font-bold text-sm text-[#222] mb-1">Community Outreach</h4>
                 <p className="text-xs text-[#666]">Students actively participate in literacy drives, environmental clean-ups, and elder care visits.</p>
               </div>
@@ -525,11 +697,16 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           12. ADMISSIONS — Take the First Step
           ========================================================================= */}
-      <section className="wireframe-section" id="admissions">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Join Us</div>
+      <section className="wireframe-section relative" id="admissions">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="red-triangle" align="right" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="red-triangle" size={15} />
+            <span>Join Us</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             Take the First Step
@@ -577,7 +754,7 @@ export const WireframeSections: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-6 border border-[#ccc] rounded">
+            <div className="p-6 border border-[#ccc] rounded bg-white">
               <h3 className="font-bold text-base text-[#222] mb-3">Key Information</h3>
               <ul className="text-xs text-[#666] divide-y divide-[#eee] mb-6">
                 <li className="py-2"><strong>Academic Year:</strong> April &ndash; March</li>
@@ -586,7 +763,7 @@ export const WireframeSections: React.FC = () => {
                 <li className="py-2"><strong>Campus Visits:</strong> Monday &ndash; Friday, 9:00 AM &ndash; 1:00 PM</li>
               </ul>
               <div className="flex flex-wrap gap-3">
-                <a href="#inquire" className="wf-cta !mt-0">
+                <a href="#inquire" className="wf-cta !mt-0 !bg-white !text-red-600 !border-red-600 hover:!bg-red-600 hover:!text-white hover:!border-red-600 transition-colors duration-200 font-semibold">
                   APPLY ONLINE
                 </a>
                 <a href="#prospectus" className="wf-cta wf-cta-secondary !mt-0">
@@ -601,11 +778,16 @@ export const WireframeSections: React.FC = () => {
       {/* =========================================================================
           13. CONTACT — Reach Out
           ========================================================================= */}
-      <section className="wireframe-section" id="contact">
-        <div className="wireframe-container">
-          <div className="wf-label text-center sm:text-left">Reach Out</div>
+      <section className="wireframe-section relative" id="contact">
+        {/* Scroll-triggered edge pop shape in empty margin space */}
+        <ISBScrollPopEdgeShape shape="blue-hourglass" align="left" topPosition="top-24 sm:top-28" />
+        <div className="wireframe-container relative z-10">
+          <div className="wf-label text-center flex items-center justify-center gap-2">
+            <ISBShape type="blue-hourglass" size={15} />
+            <span>Reach Out</span>
+          </div>
           <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
             Contact Us
@@ -644,10 +826,18 @@ export const WireframeSections: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          14. FOOTER — Comprehensive Wireframe Footer
+          14. FOOTER — Comprehensive Wireframe Footer with ISB Decorative Shape System
           ========================================================================= */}
       <footer className="border-t border-[#ccc] py-12 text-[#666] bg-white">
         <div className="wireframe-container">
+          {/* ISB Signature Decorative Shapes Row */}
+          <div className="mb-10 pb-8 border-b border-[#eee] flex flex-col items-center justify-center text-center">
+            <div className="text-[11px] font-bold uppercase tracking-widest text-[#888] mb-2">
+              Values in Action &bull; Symbolic Shapes
+            </div>
+            <ISBFooterIconsRow />
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div>
               <h4 className="text-xs uppercase tracking-widest font-bold text-[#222] mb-3">IS Dev Samaj Senior Secondary School</h4>

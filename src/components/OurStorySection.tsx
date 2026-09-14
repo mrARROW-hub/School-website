@@ -52,7 +52,7 @@ export const OurStorySection: React.FC = () => {
           {/* Wireframe: .story-text */}
           <div className="flex flex-col">
             <h2
-              className="text-[34px] font-fraunces font-bold text-slate-900 tracking-tight leading-tight mb-6 text-center sm:text-left break-words"
+              className="text-[34px] font-fraunces font-bold text-slate-900 tracking-tight leading-tight mb-6 text-center break-words"
               style={{ fontFamily: "'Fraunces', serif", fontSize: '34px' }}
             >
               where values meet vision.....

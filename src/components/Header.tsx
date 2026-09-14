@@ -262,18 +262,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAdmissions }) => {
             <button
               type="button"
               onClick={() => onOpenAdmissions('apply')}
-              className="px-4 py-2 bg-[#111] hover:bg-[#333] text-white text-xs font-bold uppercase tracking-wider rounded transition-colors shadow-sm"
+              className="px-4 py-2 bg-white hover:bg-red-600 text-red-600 hover:text-white border border-red-600 hover:border-red-600 text-xs font-bold uppercase tracking-wider rounded transition-colors duration-200 shadow-sm"
             >
               Apply
             </button>
           </div>
 
           {/* Mobile Right: Quick Apply Button + Hamburger Menu */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
             <button
               type="button"
               onClick={() => onOpenAdmissions('apply')}
-              className="px-3 py-1.5 bg-[#111] text-white text-xs font-bold uppercase tracking-wider rounded"
+              className="px-3 py-1.5 bg-white hover:bg-red-600 text-red-600 hover:text-white border border-red-600 hover:border-red-600 text-xs font-bold uppercase tracking-wider rounded transition-colors duration-200"
             >
               Apply
             </button>
@@ -281,10 +281,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAdmissions }) => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#222] hover:bg-neutral-100 rounded border border-[#ccc]"
+              className="px-3 py-1.5 bg-white hover:bg-black text-black hover:text-white border border-black hover:border-black text-xs font-bold uppercase tracking-wider rounded transition-colors duration-200 flex items-center gap-1.5 shadow-sm"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              <span>{mobileMenuOpen ? 'Close' : 'Menu'}</span>
             </button>
           </div>
         </div>
@@ -319,7 +320,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAdmissions }) => {
                   setMobileMenuOpen(false);
                   onOpenAdmissions('apply');
                 }}
-                className="py-2.5 px-2 bg-[#111] text-white text-xs font-bold uppercase tracking-wider rounded text-center"
+                className="py-2.5 px-2 bg-white hover:bg-red-600 text-red-600 hover:text-white border border-red-600 hover:border-red-600 text-xs font-bold uppercase tracking-wider rounded text-center transition-colors duration-200"
               >
                 Apply
               </button>

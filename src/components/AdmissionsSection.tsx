@@ -148,7 +148,7 @@ export const AdmissionsSection: React.FC<AdmissionsSectionProps> = ({ onOpenAdmi
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onOpenAdmissions}
-              className="w-full sm:w-auto min-w-[200px] px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-md shadow-lg transition-colors text-center"
+              className="w-full sm:w-auto min-w-[200px] px-8 py-3.5 bg-white hover:bg-red-600 text-red-600 hover:text-white border-2 border-red-600 font-bold text-xs uppercase tracking-wider rounded-md shadow-lg transition-colors duration-200 text-center"
             >
               EXPLORE ADMISSIONS &amp; APPLY
             </button>

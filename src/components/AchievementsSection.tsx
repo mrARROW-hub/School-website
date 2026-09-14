@@ -42,7 +42,7 @@ export const AchievementsSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
             <h2
-              className="!text-[36px] font-poppins font-bold text-slate-900 tracking-tight text-center sm:text-left break-words leading-tight"
+              className="!text-[36px] font-poppins font-bold text-slate-900 tracking-tight text-center break-words leading-tight"
               style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
             >
               Making Us Proud

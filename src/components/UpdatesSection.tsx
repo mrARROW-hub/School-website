@@ -33,7 +33,7 @@ export const UpdatesSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
             <h2
-              className="!text-[36px] font-poppins font-bold text-slate-900 tracking-tight text-center sm:text-left break-words leading-tight"
+              className="!text-[36px] font-poppins font-bold text-slate-900 tracking-tight text-center break-words leading-tight"
               style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
             >
               What&apos;s Happening
@@ -55,28 +55,28 @@ export const UpdatesSection: React.FC = () => {
               onClick={() => setActiveModalUpdate(item)}
               className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 flex flex-col justify-between cursor-pointer group"
             >
-              <div>
+              <div className="min-w-0">
                 {/* Wireframe: .update-type */}
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <div className="flex items-center gap-2">
-                    <div className="p-1.5 rounded bg-slate-100 group-hover:bg-amber-50 transition-colors">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="p-1.5 rounded bg-slate-100 group-hover:bg-amber-50 transition-colors shrink-0">
                       {getTypeIcon(item.type)}
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-blue-900 transition-colors">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-blue-900 transition-colors truncate">
                       Latest {item.type}
                     </span>
                   </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900 shrink-0">
                     {item.badge}
                   </span>
                 </div>
 
                 {/* Wireframe: .update-title */}
-                <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-900 transition-colors mb-2 leading-snug">
+                <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-900 transition-colors mb-2 leading-snug break-words">
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
+                <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed break-words">
                   {item.summary}
                 </p>
               </div>
