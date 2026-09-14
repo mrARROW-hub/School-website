@@ -163,3 +163,50 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =========================================================================
+   SHADY SIDE ACADEMY (https://www.shadysideacademy.org/) HIGHLIGHT EFFECT
+   =========================================================================
+   Replicating the signature highlighter marker effect and colors from the site:
+   - Turquoise: #11FEEE (Signature fluorescent turquoise seen across their story and headlines)
+   - Green:     #1FFF01 (Fluorescent neon green)
+   - Yellow:    #FFFF01 (Fluorescent yellow)
+   - Pink:      #FF1CA5 (Fluorescent pink)
+   - Amber:     #FFB81C (Warm gold/amber secondary color)
+   ========================================================================= */
+.highlighted-text-fluorescent-turquoise,
+.highlighted-text-fluorescent-green,
+.highlighted-text-fluorescent-yellow,
+.highlighted-text-fluorescent-pink,
+.highlighted-text-yellow {
+  position: relative;
+  z-index: 0;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 0.18em;
+  border-radius: 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 100%;
+}
+
+.highlighted-text-fluorescent-turquoise {
+  background-image: linear-gradient(to top, #11FEEE 0%, #11FEEE 42%, transparent 42%);
+}
+
+.highlighted-text-fluorescent-green {
+  background-image: linear-gradient(to top, #1FFF01 0%, #1FFF01 42%, transparent 42%);
+}
+
+.highlighted-text-fluorescent-yellow {
+  background-image: linear-gradient(to top, #FFFF01 0%, #FFFF01 42%, transparent 42%);
+}
+
+.highlighted-text-fluorescent-pink {
+  background-image: linear-gradient(to top, #FF1CA5 0%, #FF1CA5 42%, transparent 42%);
+}
+
+.highlighted-text-yellow {
+  background-image: linear-gradient(to top, #FFB81C 0%, #FFB81C 42%, transparent 42%);
+}
+

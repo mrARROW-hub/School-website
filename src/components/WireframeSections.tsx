@@ -6,6 +6,7 @@ import {
   ISBScrollPopEdgeShape,
   ISBShapeType,
 } from './DecorativeShapes';
+import { ShadyHighlight } from './ShadyHighlight';
 
 export const WireframeSections: React.FC = () => {
   const brandPillars: { type: ISBShapeType; name: string; desc: string; color: string }[] = [
@@ -69,7 +70,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[34px] font-fraunces text-[#111] leading-tight font-bold text-center break-words"
             style={{ fontFamily: "'Fraunces', serif", fontSize: '34px' }}
           >
-            where values meet vision.....
+            where <ShadyHighlight color="turquoise">values</ShadyHighlight> meet <ShadyHighlight color="turquoise">vision</ShadyHighlight>.....
           </h2>
 
           {/* ISB-Style Sentence with Inline Shapes */}
@@ -170,7 +171,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            The Learning Journey
+            The <ShadyHighlight color="turquoise">Learning Journey</ShadyHighlight>
           </h2>
           <p className="max-w-2xl text-base text-[#666] mb-8 text-center mx-auto break-words">
             A continuous continuum of growth from the earliest steps of wonder to the confident leap into adulthood.
@@ -254,7 +255,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            Where Learning Happens
+            Where <ShadyHighlight color="turquoise">Learning Happens</ShadyHighlight>
           </h2>
           <p className="max-w-2xl text-base text-[#666] text-center mx-auto break-words">
             Purpose-built spaces that invite curiosity, discipline, and creative pursuit across every acre.
@@ -303,7 +304,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading font-crayon text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-center break-words"
             style={{ fontFamily: "'DK Crayon Crumble', 'Cabin Sketch', cursive, sans-serif" }}
           >
-            Beyond the Classroom
+            Beyond the <ShadyHighlight color="turquoise">Classroom</ShadyHighlight>
           </h2>
           <p className="max-w-2xl text-base text-[#666] text-center mx-auto break-words">
             Character is forged as much on the pitch, stage, and easel as it is in the lecture hall.
@@ -363,7 +364,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            Guldaasta &mdash; A Celebration of Togetherness
+            Guldaasta &mdash; <ShadyHighlight color="turquoise">A Celebration of Togetherness</ShadyHighlight>
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
             <div>
@@ -416,7 +417,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            Making Us Proud
+            Making Us <ShadyHighlight color="turquoise">Proud</ShadyHighlight>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
             <div>
@@ -500,7 +501,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            What&apos;s Happening
+            What&apos;s <ShadyHighlight color="turquoise">Happening</ShadyHighlight>
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
             <div className="lg:col-span-2 flex flex-col gap-4">
@@ -574,7 +575,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            Through Our Lens
+            Through Our <ShadyHighlight color="turquoise">Lens</ShadyHighlight>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
             <div className="wf-img-placeholder h-40">CLASSROOM IN ACTION</div>
@@ -604,7 +605,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            The People Behind the Learning
+            The People Behind <ShadyHighlight color="turquoise">the Learning</ShadyHighlight>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <div className="border border-[#ccc] rounded overflow-hidden text-center bg-white">
@@ -661,7 +662,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            Beyond Dev Samaj
+            Beyond <ShadyHighlight color="turquoise">Dev Samaj</ShadyHighlight>
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
             <div className="lg:col-span-2 border border-[#ccc] rounded overflow-hidden bg-white">
@@ -709,7 +710,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            Take the First Step
+            Take the <ShadyHighlight color="turquoise">First Step</ShadyHighlight>
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-8">
             <div className="flex flex-col gap-6">
@@ -790,7 +791,7 @@ export const WireframeSections: React.FC = () => {
             className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
             style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
           >
-            Contact Us
+            Contact <ShadyHighlight color="turquoise">Us</ShadyHighlight>
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 items-start">
             <div className="flex flex-col gap-6">
