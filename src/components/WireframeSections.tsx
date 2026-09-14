@@ -8,9 +8,9 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="story">
         <div className="wireframe-container">
-          <div className="wf-label">Our Story</div>
+          <div className="wf-label text-center sm:text-left">Our Story</div>
           <h2
-            className="wf-heading !text-[34px] font-fraunces text-[#111] leading-tight font-bold"
+            className="wf-heading !text-[34px] font-fraunces text-[#111] leading-tight font-bold text-center sm:text-left break-words"
             style={{ fontFamily: "'Fraunces', serif", fontSize: '34px' }}
           >
             where values meet vision.....
@@ -63,9 +63,14 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="journey">
         <div className="wireframe-container">
-          <div className="wf-label">Academics</div>
-          <h2 className="wf-heading">The Learning Journey</h2>
-          <p className="max-w-2xl text-base text-[#666] mb-8">
+          <div className="wf-label text-center sm:text-left">Academics</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            The Learning Journey
+          </h2>
+          <p className="max-w-2xl text-base text-[#666] mb-8 text-center sm:text-left">
             A continuous continuum of growth from the earliest steps of wonder to the confident leap into adulthood.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
@@ -117,9 +122,14 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="campus">
         <div className="wireframe-container">
-          <div className="wf-label">Campus</div>
-          <h2 className="wf-heading">Where Learning Happens</h2>
-          <p className="max-w-2xl text-base text-[#666]">
+          <div className="wf-label text-center sm:text-left">Campus</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            Where Learning Happens
+          </h2>
+          <p className="max-w-2xl text-base text-[#666] text-center sm:text-left">
             Purpose-built spaces that invite curiosity, discipline, and creative pursuit across every acre.
           </p>
           <div className="wf-img-placeholder my-8 h-[380px]">
@@ -156,9 +166,9 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="beyond">
         <div className="wireframe-container">
-          <div className="wf-label">Student Life</div>
+          <div className="wf-label text-center sm:text-left">Student Life</div>
           <h2
-            className="wf-heading font-crayon text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide"
+            className="wf-heading font-crayon text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-center sm:text-left break-words"
             style={{ fontFamily: "'DK Crayon Crumble', 'Cabin Sketch', cursive, sans-serif" }}
           >
             Beyond the Classroom
@@ -203,12 +213,17 @@ export const WireframeSections: React.FC = () => {
         <div className="wireframe-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="wf-label">Signature Annual Event</div>
-              <h2 className="wf-heading">Guldaasta &mdash; A Celebration of Togetherness</h2>
-              <p className="text-base text-[#666] leading-relaxed mb-6">
+              <div className="wf-label text-center sm:text-left">Signature Annual Event</div>
+              <h2
+                className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+                style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+              >
+                Guldaasta &mdash; A Celebration of Togetherness
+              </h2>
+              <p className="text-base text-[#666] leading-relaxed mb-6 text-center sm:text-left">
                 Our landmark annual showcase where every child&apos;s voice, talent, and culture come together in an unforgettable evening of performance, exhibition, and shared pride.
               </p>
-              <div className="flex gap-8 my-6">
+              <div className="flex gap-8 my-6 justify-center sm:justify-start">
                 <div>
                   <strong className="block text-2xl font-bold text-[#222]">1,200+</strong>
                   <span className="text-xs text-[#666]">Student Performers</span>
@@ -222,9 +237,11 @@ export const WireframeSections: React.FC = () => {
                   <span className="text-xs text-[#666]">Unforgettable Night</span>
                 </div>
               </div>
-              <a href="#guldaasta-details" className="wf-cta">
-                LEARN ABOUT GULDAASTA
-              </a>
+              <div className="text-center sm:text-left">
+                <a href="#guldaasta-details" className="wf-cta">
+                  LEARN ABOUT GULDAASTA
+                </a>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="col-span-2 wf-img-placeholder h-64">
@@ -242,8 +259,13 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="achievements">
         <div className="wireframe-container">
-          <div className="wf-label">Achievements</div>
-          <h2 className="wf-heading">Making Us Proud</h2>
+          <div className="wf-label text-center sm:text-left">Achievements</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            Making Us Proud
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
             <div>
               <h3 className="text-base font-bold text-[#222] pb-2 border-b border-[#ccc] mb-4">Academics</h3>
@@ -316,8 +338,13 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="updates">
         <div className="wireframe-container">
-          <div className="wf-label">News &amp; Updates</div>
-          <h2 className="wf-heading">What&apos;s Happening</h2>
+          <div className="wf-label text-center sm:text-left">News &amp; Updates</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            What&apos;s Happening
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
             <div className="lg:col-span-2 flex flex-col gap-4">
               <div className="flex gap-4 p-4 border border-[#ccc] rounded items-center">
@@ -380,8 +407,13 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="gallery">
         <div className="wireframe-container">
-          <div className="wf-label">Gallery</div>
-          <h2 className="wf-heading">Through Our Lens</h2>
+          <div className="wf-label text-center sm:text-left">Gallery</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            Through Our Lens
+          </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
             <div className="wf-img-placeholder h-40">CLASSROOM IN ACTION</div>
             <div className="wf-img-placeholder md:col-span-2 h-40">SCIENCE LAB EXPERIMENT</div>
@@ -400,8 +432,13 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="educators">
         <div className="wireframe-container">
-          <div className="wf-label">Faculty</div>
-          <h2 className="wf-heading">The People Behind the Learning</h2>
+          <div className="wf-label text-center sm:text-left">Faculty</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            The People Behind the Learning
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <div className="border border-[#ccc] rounded overflow-hidden text-center">
               <div className="wf-img-placeholder h-56">FACULTY PHOTO</div>
@@ -447,8 +484,13 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="community">
         <div className="wireframe-container">
-          <div className="wf-label">Community</div>
-          <h2 className="wf-heading">Beyond Dev Samaj</h2>
+          <div className="wf-label text-center sm:text-left">Community</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            Beyond Dev Samaj
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
             <div className="lg:col-span-2 border border-[#ccc] rounded overflow-hidden">
               <div className="wf-img-placeholder h-64">ALUMNI SPOTLIGHT PHOTO</div>
@@ -485,8 +527,13 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="admissions">
         <div className="wireframe-container">
-          <div className="wf-label">Join Us</div>
-          <h2 className="wf-heading">Take the First Step</h2>
+          <div className="wf-label text-center sm:text-left">Join Us</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            Take the First Step
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-8">
             <div className="flex flex-col gap-6">
               <div className="flex gap-4 items-start">
@@ -556,8 +603,13 @@ export const WireframeSections: React.FC = () => {
           ========================================================================= */}
       <section className="wireframe-section" id="contact">
         <div className="wireframe-container">
-          <div className="wf-label">Reach Out</div>
-          <h2 className="wf-heading">Contact Us</h2>
+          <div className="wf-label text-center sm:text-left">Reach Out</div>
+          <h2
+            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center sm:text-left break-words"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
+            Contact Us
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 items-start">
             <div className="flex flex-col gap-6">
               <div>

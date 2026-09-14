@@ -17,7 +17,10 @@ export const PeopleSection: React.FC = () => {
         {/* Wireframe: .heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+            <h2
+              className="!text-[36px] font-poppins font-bold text-slate-900 tracking-tight text-center sm:text-left break-words leading-tight"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
               The People Behind the Learning
             </h2>
             <p className="text-sm text-slate-500 mt-2 max-w-xl">

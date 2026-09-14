@@ -37,7 +37,7 @@ export const BeyondClassroomSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-normal font-crayon text-slate-900 tracking-wide"
+              className="text-3xl sm:text-4xl md:text-5xl font-normal font-crayon text-slate-900 tracking-wide text-center sm:text-left break-words"
               style={{ fontFamily: "'DK Crayon Crumble', 'Cabin Sketch', cursive, sans-serif" }}
             >
               Beyond the Classroom

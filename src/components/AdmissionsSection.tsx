@@ -25,7 +25,10 @@ export const AdmissionsSection: React.FC<AdmissionsSectionProps> = ({ onOpenAdmi
           </div>
 
           {/* Wireframe: .heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-display mb-4 text-white">
+          <h2
+            className="!text-[36px] font-poppins font-bold tracking-tight text-center break-words leading-tight mb-4 text-white"
+            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          >
             Take the First Step Towards Your Child&apos;s Future
           </h2>
 

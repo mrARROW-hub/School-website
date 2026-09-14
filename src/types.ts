@@ -9,6 +9,8 @@ export interface HeroSlide {
   alt: string;
   caption?: string;
   tagline?: string;
+  headlinePrefix?: string;
+  headlineHighlight?: string;
 }
 
 export interface StoryStat {

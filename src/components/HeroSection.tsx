@@ -32,13 +32,15 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
   }, [nextSlide, currentIndex]);
 
   const activeSlide = HERO_SLIDES[currentIndex];
+  const currentPrefix = activeSlide.headlinePrefix || 'WE REDEFINE';
+  const currentHighlight = activeSlide.headlineHighlight || 'FUTURE';
 
   return (
     <>
       {/* 1. HERO IMAGE CAROUSEL */}
       <section
         id="hero"
-        className="relative w-full aspect-[12/7] sm:aspect-auto sm:h-[440px] md:h-[480px] lg:h-[520px] flex items-end justify-center overflow-hidden bg-neutral-100 text-[#222] select-none border-b border-[#ccc]"
+        className="relative w-full aspect-[12/7] sm:aspect-auto sm:h-[440px] md:h-[480px] lg:h-[520px] flex items-end justify-center overflow-hidden bg-[#003366] text-white select-none border-b-0 sm:border-b border-[#002244]"
         aria-label="Hero Image Carousel"
       >
         {/* =========================================================================
@@ -77,34 +79,46 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Soft bottom legibility gradient on laptop/desktop screens where text overlays the banner */}
-          <div className="hidden sm:block absolute inset-x-0 bottom-0 h-44 sm:h-52 bg-gradient-to-t from-white/95 via-white/40 to-transparent pointer-events-none" />
+          {/* ISB.BE-inspired #003366 Gradient Blends on Top and Bottom */}
+          {/* Top blend: softly darkens from #003366 down to transparent */}
+          <div className="absolute inset-x-0 top-0 h-24 sm:h-36 md:h-44 bg-gradient-to-b from-[#003366]/90 via-[#003366]/45 to-transparent pointer-events-none z-10" />
+
+          {/* Bottom blend: seamless upward fade from #003366 to transparent for text legibility */}
+          <div className="absolute inset-x-0 bottom-0 h-36 sm:h-56 md:h-64 bg-gradient-to-t from-[#003366] via-[#003366]/75 to-transparent pointer-events-none z-10" />
         </div>
 
         {/* =========================================================================
             HERO CONTENT FOR LARGER SCREENS (LAPTOP / DESKTOP):
-            - Placed inside the hero section just like before
-            - "WE REDEFINE" stacked vertically directly on top of "FUTURE"
-            - Capital letters in each device
+            - Synchronized with active slide image
+            - Stacked vertically: prefix on top, highlight on bottom
             - Zero space between them (-space-y-1 / leading-none)
-            - "WE REDEFINE": 23px Poppins, sans-serif, uppercase
-            - "FUTURE": 59px Anton, sans-serif, uppercase
+            - Prefix: 23px Poppins, sans-serif, uppercase in crisp white
+            - Highlight: 46px/59px Anton, sans-serif, uppercase in crisp white
             ========================================================================= */}
         <div className="hidden sm:flex relative z-10 w-full px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 justify-center text-center pointer-events-none">
-          <div className="flex flex-col items-center justify-center -space-y-1 sm:-space-y-2 leading-none">
-            <span
-              className="text-[23px] font-poppins font-semibold text-[#111] uppercase tracking-wider leading-none m-0 p-0 drop-shadow-[0_2px_4px_rgba(255,255,255,0.95)]"
-              style={{ fontFamily: "'Poppins', sans-serif" }}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={activeSlide.id}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
+              className="flex flex-col items-center justify-center -space-y-1 sm:-space-y-2 leading-none"
             >
-              WE REDEFINE
-            </span>
-            <span
-              className="text-[46px] md:text-[59px] font-anton tracking-wide text-[#111] uppercase leading-none m-0 p-0 drop-shadow-[0_2px_4px_rgba(255,255,255,0.95)]"
-              style={{ fontFamily: "'Anton', sans-serif" }}
-            >
-              FUTURE
-            </span>
-          </div>
+              <span
+                className="text-[23px] font-poppins font-semibold text-white uppercase tracking-wider leading-none m-0 p-0 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                {currentPrefix}
+              </span>
+              <span
+                className="text-[46px] md:text-[59px] font-anton tracking-wide text-white uppercase leading-none m-0 p-0 drop-shadow-[0_3px_12px_rgba(0,0,0,0.6)]"
+                style={{ fontFamily: "'Anton', sans-serif" }}
+              >
+                {currentHighlight}
+              </span>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* =========================================================================
@@ -118,47 +132,57 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
             type="button"
             onClick={prevSlide}
             aria-label="Previous image"
-            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white active:bg-neutral-200 text-[#111] border border-[#ccc] shadow-md flex items-center justify-center transition-all hover:scale-105 cursor-pointer"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 hover:bg-white/35 active:bg-white/50 text-white backdrop-blur-md border border-white/30 shadow-lg flex items-center justify-center transition-all hover:scale-105 cursor-pointer"
           >
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-[#222]" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </button>
 
           <button
             type="button"
             onClick={nextSlide}
             aria-label="Next image"
-            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white active:bg-neutral-200 text-[#111] border border-[#ccc] shadow-md flex items-center justify-center transition-all hover:scale-105 cursor-pointer"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 hover:bg-white/35 active:bg-white/50 text-white backdrop-blur-md border border-white/30 shadow-lg flex items-center justify-center transition-all hover:scale-105 cursor-pointer"
           >
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#222]" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </button>
         </div>
       </section>
 
       {/* =========================================================================
           HERO HEADLINE BANNER FOR SMALL SCREENS:
-          - Kept as it is: located just beneath the hero section
-          - Capital letters in each device ("WE REDEFINE" & "FUTURE")
-          - Prevents arrows from overlapping text on smaller devices
+          - Changes dynamically with the slide image
+          - Seamless #003366 background matching hero bottom blend
+          - Crisp white text
+          - Word-wrap preserved for smaller screens
           ========================================================================= */}
       <section
-        className="sm:hidden w-full bg-white border-b border-[#ccc] py-6 px-4 text-center"
+        className="sm:hidden w-full bg-[#003366] border-b border-[#002244] py-6 px-4 text-center"
         aria-label="School Vision Headline"
       >
-        <div className="w-full max-w-sm mx-auto flex items-center justify-center">
-          <h1 className="inline-flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 text-center">
-            <span
-              className="text-[20px] font-poppins font-semibold text-[#222] uppercase tracking-wider leading-none"
-              style={{ fontFamily: "'Poppins', sans-serif" }}
+        <div className="w-full max-w-sm mx-auto flex items-center justify-center min-h-[44px]">
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.h1
+              key={activeSlide.id}
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              className="inline-flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 text-center"
             >
-              WE REDEFINE
-            </span>
-            <span
-              className="text-[34px] font-anton tracking-wide text-[#111] uppercase leading-none"
-              style={{ fontFamily: "'Anton', sans-serif" }}
-            >
-              FUTURE
-            </span>
-          </h1>
+              <span
+                className="text-[20px] font-poppins font-semibold text-white uppercase tracking-wider leading-none drop-shadow-sm"
+                style={{ fontFamily: "'Poppins', sans-serif" }}
+              >
+                {currentPrefix}
+              </span>
+              <span
+                className="text-[34px] font-anton tracking-wide text-white uppercase leading-none drop-shadow-sm"
+                style={{ fontFamily: "'Anton', sans-serif" }}
+              >
+                {currentHighlight}
+              </span>
+            </motion.h1>
+          </AnimatePresence>
         </div>
       </section>
     </>

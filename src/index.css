@@ -71,10 +71,25 @@
 }
 
 .wf-heading {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
   font-weight: 700;
+  line-height: 1.25;
   margin-bottom: var(--space-3);
   color: #222222;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 639px) {
+  .wf-heading {
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .wf-label {
+    text-align: center;
+  }
 }
 
 .wf-placeholder {

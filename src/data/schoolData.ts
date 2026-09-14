@@ -18,6 +18,8 @@ export const HERO_SLIDES: HeroSlide[] = [
     alt: 'I.S. Dev Samaj School Students in Activity and Celebration',
     caption: 'Student Excellence & Cultural Heritage',
     tagline: 'Empowering young leaders through moral values and progressive education',
+    headlinePrefix: 'WE REDEFINE',
+    headlineHighlight: 'FUTURE',
   },
   {
     id: 'slide-2',
@@ -25,6 +27,8 @@ export const HERO_SLIDES: HeroSlide[] = [
     alt: 'I.S. Dev Samaj School Vibrant Campus and Infrastructure',
     caption: 'Lush Green Iconic Campus in Sector 21-C, Chandigarh',
     tagline: 'Modern educational facilities amidst a serene, nature-rich environment',
+    headlinePrefix: 'UNLOCK',
+    headlineHighlight: 'POTENTIAL',
   },
   {
     id: 'slide-3',
@@ -32,6 +36,8 @@ export const HERO_SLIDES: HeroSlide[] = [
     alt: 'I.S. Dev Samaj School Sports & Football Team with Coach',
     caption: 'Athletic Excellence & Team Camaraderie',
     tagline: 'Cultivating discipline, leadership, and physical vitality on the field',
+    headlinePrefix: 'IGNITE',
+    headlineHighlight: 'PURPOSE',
   },
 ];
 
