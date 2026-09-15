@@ -236,19 +236,261 @@ export const ISBWordBadge: React.FC<{
   children: React.ReactNode;
   shape: ISBShapeType;
   label?: string;
-}> = ({ children, shape, label }) => {
+  light?: boolean;
+}> = ({ children, shape, label, light = false }) => {
   return (
-    <span className="inline-flex items-center gap-1.5 font-semibold text-[#111] group cursor-default">
-      <span className="relative inline-block border-b-2 border-transparent group-hover:border-current transition-colors">
+    <span
+      className={`inline-flex items-center gap-1.5 font-semibold ${
+        light ? 'text-white' : 'text-[#111]'
+      } group cursor-default`}
+    >
+      <span
+        className={`relative inline-block border-b-2 ${
+          light ? 'border-white/40 group-hover:border-white' : 'border-transparent group-hover:border-current'
+        } transition-colors`}
+      >
         {children}
       </span>
       <span
         title={label}
-        className="inline-flex items-center justify-center -translate-y-0.5 transition-transform duration-200 group-hover:scale-125 group-hover:rotate-6"
+        className={`inline-flex items-center justify-center -translate-y-0.5 transition-transform duration-200 group-hover:scale-125 group-hover:rotate-6 ${
+          light ? 'bg-white/15 rounded-md p-1 backdrop-blur-xs' : ''
+        }`}
       >
-        <ISBShape type={shape} size={18} />
+        <ISBShape type={shape} size={light ? 20 : 18} />
       </span>
     </span>
+  );
+};
+
+/**
+ * Signature ISB PLM 4-Petal / Quadrant Flower Shape
+ * Glyph name: plm-shape (\e94f) from ISB's official IcoMoon font library
+ * Used across isb.be for signature branding and bottom-left corner cutouts
+ */
+export const ISBPLMShape: React.FC<{
+  size?: number | string;
+  className?: string;
+  color?: string;
+}> = ({ size = 48, className = '', color = '#0064ec' }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 1048 1024"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={`inline-block ${className}`}
+    aria-hidden="true"
+  >
+    <g transform="matrix(1 0 0 -1 0 960)">
+      <path
+        d="M526.242 960h522.139v-512.216c-288.36 0-522.139 229.321-522.139 512.216zM4.433 960h522.139v-512.216c-288.359 0-522.139 229.321-522.139 512.216zM526.242 448.217h522.139v-512.217c-288.36 0-522.139 229.321-522.139 512.217zM4.433 448.217h522.139v-512.217c-288.359 0-522.139 229.321-522.139 512.217z"
+        fill={color}
+      />
+    </g>
+  </svg>
+);
+
+/**
+ * ISB Signature Bottom-Left Corner Design
+ * Replicates the custom corner element from isb.be learning/journey/testimonials sections
+ * Uses the exact ISB royal blue #0064ec and signature 4-petal quadrant PLM glyph
+ */
+export const ISBCornerDesign: React.FC<{
+  className?: string;
+  size?: number;
+}> = ({ className = '', size = 44 }) => {
+  return (
+    <div
+      className={`absolute bottom-0 left-0 bg-white pt-2 sm:pt-2.5 pr-2.5 sm:pr-3.5 pb-0 pl-0 rounded-tr-2xl border-0 border-none z-20 flex items-end justify-start pointer-events-none select-none ${className}`}
+      aria-hidden="true"
+    >
+      <ISBPLMShape size={size} color="#0064ec" />
+    </div>
+  );
+};
+
+export type ISBCornerVariant =
+  | 'blue'
+  | 'ice'
+  | 'purple'
+  | 'green'
+  | 'yellow'
+  | 'pink'
+  | 'navy'
+  | 'white';
+
+export type ISBCornerPosition =
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'top-left'
+  | 'top-right';
+
+export interface ISBCornerCardProps {
+  children: React.ReactNode;
+  variant?: ISBCornerVariant;
+  cornerPosition?: ISBCornerPosition;
+  shape?: ISBShapeType | 'plm';
+  shapeColor?: string;
+  hasBorder?: boolean;
+  cutoutBg?: string;
+  className?: string;
+  innerClassName?: string;
+  cornerSize?: number;
+}
+
+const VARIANT_STYLES: Record<
+  ISBCornerVariant,
+  {
+    bg: string;
+    text: string;
+    borderColor: string;
+    defaultShape: ISBShapeType | 'plm';
+    defaultShapeColor: string;
+  }
+> = {
+  blue: {
+    bg: 'bg-[#0064ec]',
+    text: 'text-white',
+    borderColor: 'border-[#0050c8]',
+    defaultShape: 'plm',
+    defaultShapeColor: '#0064ec',
+  },
+  ice: {
+    bg: 'bg-[#f0f6ff]',
+    text: 'text-[#0a2540]',
+    borderColor: 'border-[#b8d7fe]',
+    defaultShape: 'blue-hourglass',
+    defaultShapeColor: '#0064ec',
+  },
+  purple: {
+    bg: 'bg-[#f7f2fe]',
+    text: 'text-[#2d1254]',
+    borderColor: 'border-[#d9c1f8]',
+    defaultShape: 'purple-stairs',
+    defaultShapeColor: '#861fce',
+  },
+  green: {
+    bg: 'bg-[#effaf3]',
+    text: 'text-[#0d3b25]',
+    borderColor: 'border-[#a3e8c4]',
+    defaultShape: 'green-flower',
+    defaultShapeColor: '#00b273',
+  },
+  yellow: {
+    bg: 'bg-[#fff9eb]',
+    text: 'text-[#4a3200]',
+    borderColor: 'border-[#fee0a4]',
+    defaultShape: 'yellow-bars',
+    defaultShapeColor: '#FFC548',
+  },
+  pink: {
+    bg: 'bg-[#fef2f8]',
+    text: 'text-[#4c0f2f]',
+    borderColor: 'border-[#fbc5df]',
+    defaultShape: 'pink-circle',
+    defaultShapeColor: '#fe76b4',
+  },
+  navy: {
+    bg: 'bg-[#002244]',
+    text: 'text-white',
+    borderColor: 'border-[#003870]',
+    defaultShape: 'blue-hourglass',
+    defaultShapeColor: '#38bdf8',
+  },
+  white: {
+    bg: 'bg-white',
+    text: 'text-[#222]',
+    borderColor: 'border-[#e2e8f0]',
+    defaultShape: 'plm',
+    defaultShapeColor: '#0064ec',
+  },
+};
+
+/**
+ * ISBCornerCard
+ * High-craft container inspired by https://www.isb.be/
+ * Features signature asymmetrical corner cutouts with custom ISB symbolic shapes,
+ * rich brand color variants, and seamless border alignment without overlap.
+ */
+export const ISBCornerCard: React.FC<ISBCornerCardProps> = ({
+  children,
+  variant = 'ice',
+  cornerPosition = 'bottom-left',
+  shape,
+  shapeColor,
+  hasBorder = true,
+  cutoutBg = 'bg-white',
+  className = '',
+  innerClassName = '',
+  cornerSize = 34,
+}) => {
+  const config = VARIANT_STYLES[variant] || VARIANT_STYLES.ice;
+  const activeShape = shape || config.defaultShape;
+  const activeColor = shapeColor || config.defaultShapeColor;
+
+  // Asymmetric corner radius mapping for the card
+  let cardRadius = 'rounded-2xl sm:rounded-3xl';
+  let cutoutPosition = '';
+  let cutoutRadius = '';
+  let cutoutBorders = '';
+  let cutoutLayout = '';
+
+  if (cornerPosition === 'bottom-left') {
+    cardRadius = 'rounded-2xl sm:rounded-3xl rounded-bl-none';
+    cutoutPosition = hasBorder ? '-bottom-[2px] -left-[2px]' : 'bottom-0 left-0';
+    cutoutRadius = 'rounded-tr-2xl';
+    cutoutBorders = hasBorder
+      ? `border-t-2 border-r-2 ${config.borderColor} border-b-0 border-l-0`
+      : 'border-0 border-none';
+    cutoutLayout = 'pt-2 sm:pt-2.5 pr-2.5 sm:pr-3.5 pb-0 pl-0 items-end justify-start';
+  } else if (cornerPosition === 'bottom-right') {
+    cardRadius = 'rounded-2xl sm:rounded-3xl rounded-br-none';
+    cutoutPosition = hasBorder ? '-bottom-[2px] -right-[2px]' : 'bottom-0 right-0';
+    cutoutRadius = 'rounded-tl-2xl';
+    cutoutBorders = hasBorder
+      ? `border-t-2 border-l-2 ${config.borderColor} border-b-0 border-r-0`
+      : 'border-0 border-none';
+    cutoutLayout = 'pt-2 sm:pt-2.5 pl-2.5 sm:pl-3.5 pb-0 pr-0 items-end justify-end';
+  } else if (cornerPosition === 'top-left') {
+    cardRadius = 'rounded-2xl sm:rounded-3xl rounded-tl-none';
+    cutoutPosition = hasBorder ? '-top-[2px] -left-[2px]' : 'top-0 left-0';
+    cutoutRadius = 'rounded-br-2xl';
+    cutoutBorders = hasBorder
+      ? `border-b-2 border-r-2 ${config.borderColor} border-t-0 border-l-0`
+      : 'border-0 border-none';
+    cutoutLayout = 'pb-2 sm:pb-2.5 pr-2.5 sm:pr-3.5 pt-0 pl-0 items-start justify-start';
+  } else if (cornerPosition === 'top-right') {
+    cardRadius = 'rounded-2xl sm:rounded-3xl rounded-tr-none';
+    cutoutPosition = hasBorder ? '-top-[2px] -right-[2px]' : 'top-0 right-0';
+    cutoutRadius = 'rounded-bl-2xl';
+    cutoutBorders = hasBorder
+      ? `border-b-2 border-l-2 ${config.borderColor} border-t-0 border-r-0`
+      : 'border-0 border-none';
+    cutoutLayout = 'pb-2 sm:pb-2.5 pl-2.5 sm:pl-3.5 pt-0 pr-0 items-start justify-end';
+  }
+
+  const borderClass = hasBorder ? `border-2 ${config.borderColor}` : 'border-0 border-none';
+
+  return (
+    <div
+      className={`relative ${config.bg} ${config.text} ${cardRadius} ${borderClass} shadow-sm transition-all duration-200 ${className}`}
+    >
+      {/* Corner notch design with embedded shape */}
+      <div
+        className={`absolute ${cutoutPosition} ${cutoutBg} ${cutoutRadius} ${cutoutBorders} ${cutoutLayout} z-20 flex pointer-events-none select-none`}
+        aria-hidden="true"
+      >
+        {activeShape === 'plm' ? (
+          <ISBPLMShape size={cornerSize} color={activeColor} />
+        ) : (
+          <ISBShape type={activeShape} size={cornerSize} color={activeColor} />
+        )}
+      </div>
+
+      {/* Main card content */}
+      <div className={`relative z-10 ${innerClassName}`}>{children}</div>
+    </div>
   );
 };
 
@@ -313,7 +555,8 @@ export const ISBScrollPopEdgeShape: React.FC<{
   align?: 'left' | 'right';
   topPosition?: string;
   className?: string;
-}> = ({ shape, align = 'right', topPosition = 'top-1/2', className = '' }) => {
+  delay?: number;
+}> = ({ shape, align = 'right', topPosition = 'top-1/2', className = '', delay = 0.1 }) => {
   const isRight = align === 'right';
 
   return (
@@ -327,9 +570,9 @@ export const ISBScrollPopEdgeShape: React.FC<{
         className="pointer-events-auto cursor-pointer"
         initial={{
           x: isRight ? '85%' : '-85%',
-          opacity: 0.75,
+          opacity: 0.8,
           scale: 0.92,
-          rotate: isRight ? 12 : -12,
+          rotate: isRight ? 14 : -14,
         }}
         whileInView={{
           x: isRight ? '50%' : '-50%',
@@ -337,17 +580,16 @@ export const ISBScrollPopEdgeShape: React.FC<{
           scale: 1,
           rotate: 0,
         }}
-        viewport={{ once: false, amount: 0.02, margin: '120px 0px' }}
+        viewport={{ once: false, amount: 0.02, margin: '100px 0px' }}
         transition={{
-          type: 'spring',
-          stiffness: 95,
-          damping: 14,
-          mass: 0.6,
+          duration: 1.35,
+          ease: [0.22, 1, 0.36, 1],
+          delay,
         }}
         whileHover={{
           x: isRight ? '35%' : '-35%',
-          scale: 1.1,
-          transition: { duration: 0.2 },
+          scale: 1.08,
+          transition: { duration: 0.35, ease: 'easeOut' },
         }}
       >
         <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 drop-shadow-lg filter transition-transform">
