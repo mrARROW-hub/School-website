@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import {
   ISBShape,
   ISBWordBadge,
@@ -66,12 +67,19 @@ export const WireframeSections: React.FC = () => {
             <span>Our Story</span>
             <ISBShape type="blue-hourglass" size={14} />
           </div>
-          <h2
-            className="wf-heading !text-[34px] font-fraunces text-[#111] leading-tight font-bold text-center break-words"
-            style={{ fontFamily: "'Fraunces', serif", fontSize: '34px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            where <ShadyHighlight color="turquoise">values</ShadyHighlight> meet <ShadyHighlight color="turquoise">vision</ShadyHighlight>.....
-          </h2>
+            <h2
+              className="wf-heading !text-[34px] font-fraunces text-[#111] leading-tight font-bold text-center break-words"
+              style={{ fontFamily: "'Fraunces', serif", fontSize: '34px' }}
+            >
+              where <ShadyHighlight color="turquoise">values</ShadyHighlight> meet <ShadyHighlight color="turquoise">vision</ShadyHighlight>.....
+            </h2>
+          </motion.div>
 
           {/* ISB-Style Sentence with Inline Shapes */}
           <div className="max-w-3xl mx-auto my-6 p-5 rounded-2xl bg-neutral-50 border border-neutral-200/80 shadow-xs text-center">
@@ -167,12 +175,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="purple-stairs" size={15} />
             <span>Academics</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            The <ShadyHighlight color="turquoise">Learning Journey</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              The <ShadyHighlight color="turquoise">Learning Journey</ShadyHighlight>
+            </h2>
+          </motion.div>
           <p className="max-w-2xl text-base text-[#666] mb-8 text-center mx-auto break-words">
             A continuous continuum of growth from the earliest steps of wonder to the confident leap into adulthood.
           </p>
@@ -251,12 +266,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="yellow-bars" size={15} />
             <span>Campus</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            Where <ShadyHighlight color="turquoise">Learning Happens</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              Where <ShadyHighlight color="turquoise">Learning Happens</ShadyHighlight>
+            </h2>
+          </motion.div>
           <p className="max-w-2xl text-base text-[#666] text-center mx-auto break-words">
             Purpose-built spaces that invite curiosity, discipline, and creative pursuit across every acre.
           </p>
@@ -300,12 +322,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="green-flower" size={15} />
             <span>Student Life</span>
           </div>
-          <h2
-            className="wf-heading font-crayon text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-center break-words"
-            style={{ fontFamily: "'DK Crayon Crumble', 'Cabin Sketch', cursive, sans-serif" }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            Beyond the <ShadyHighlight color="turquoise">Classroom</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading font-crayon text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-center break-words"
+              style={{ fontFamily: "'DK Crayon Crumble', 'Cabin Sketch', cursive, sans-serif" }}
+            >
+              Beyond the <ShadyHighlight color="turquoise">Classroom</ShadyHighlight>
+            </h2>
+          </motion.div>
           <p className="max-w-2xl text-base text-[#666] text-center mx-auto break-words">
             Character is forged as much on the pitch, stage, and easel as it is in the lecture hall.
           </p>
@@ -360,12 +389,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="pink-arch" size={15} />
             <span>Signature Annual Event</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            Guldaasta &mdash; <ShadyHighlight color="turquoise">A Celebration of Togetherness</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              Guldaasta &mdash; <ShadyHighlight color="turquoise">A Celebration of Togetherness</ShadyHighlight>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
             <div>
               <p className="text-base text-[#666] leading-relaxed mb-6 text-left">
@@ -413,12 +449,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="red-triangle" size={15} />
             <span>Achievements</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            Making Us <ShadyHighlight color="turquoise">Proud</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              Making Us <ShadyHighlight color="turquoise">Proud</ShadyHighlight>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
             <div>
               <h3 className="text-base font-bold text-[#222] pb-2 border-b border-[#ccc] mb-4">Academics</h3>
@@ -497,12 +540,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="blue-hourglass" size={15} />
             <span>News &amp; Updates</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            What&apos;s <ShadyHighlight color="turquoise">Happening</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              What&apos;s <ShadyHighlight color="turquoise">Happening</ShadyHighlight>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
             <div className="lg:col-span-2 flex flex-col gap-4">
               <div className="flex flex-col sm:flex-row gap-4 p-4 border border-[#ccc] rounded items-start sm:items-center">
@@ -571,12 +621,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="green-flower" size={15} />
             <span>Gallery</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            Through Our <ShadyHighlight color="turquoise">Lens</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              Through Our <ShadyHighlight color="turquoise">Lens</ShadyHighlight>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
             <div className="wf-img-placeholder h-40">CLASSROOM IN ACTION</div>
             <div className="wf-img-placeholder md:col-span-2 h-40">SCIENCE LAB EXPERIMENT</div>
@@ -601,12 +658,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="purple-stairs" size={15} />
             <span>Faculty</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            The People Behind <ShadyHighlight color="turquoise">the Learning</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              The People Behind <ShadyHighlight color="turquoise">the Learning</ShadyHighlight>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <div className="border border-[#ccc] rounded overflow-hidden text-center bg-white">
               <div className="wf-img-placeholder h-56">FACULTY PHOTO</div>
@@ -658,12 +722,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="pink-circle" size={15} />
             <span>Community</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            Beyond <ShadyHighlight color="turquoise">Dev Samaj</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              Beyond <ShadyHighlight color="turquoise">Dev Samaj</ShadyHighlight>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
             <div className="lg:col-span-2 border border-[#ccc] rounded overflow-hidden bg-white">
               <div className="wf-img-placeholder h-64">ALUMNI SPOTLIGHT PHOTO</div>
@@ -706,12 +777,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="red-triangle" size={15} />
             <span>Join Us</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            Take the <ShadyHighlight color="turquoise">First Step</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              Take the <ShadyHighlight color="turquoise">First Step</ShadyHighlight>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-8">
             <div className="flex flex-col gap-6">
               <div className="flex gap-4 items-start">
@@ -787,12 +865,19 @@ export const WireframeSections: React.FC = () => {
             <ISBShape type="blue-hourglass" size={15} />
             <span>Reach Out</span>
           </div>
-          <h2
-            className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            Contact <ShadyHighlight color="turquoise">Us</ShadyHighlight>
-          </h2>
+            <h2
+              className="wf-heading !text-[36px] font-poppins font-bold text-[#222] leading-tight text-center break-words"
+              style={{ fontFamily: "'Poppins', sans-serif", fontSize: '36px' }}
+            >
+              Contact <ShadyHighlight color="turquoise">Us</ShadyHighlight>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8 items-start">
             <div className="flex flex-col gap-6">
               <div>
