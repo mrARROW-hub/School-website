@@ -1,4 +1,5 @@
 import React from 'react';
+import { MapPin, Navigation, ExternalLink, Phone, Mail, Clock } from 'lucide-react';
 import {
   ISBShape,
   ISBWordBadge,
@@ -970,32 +971,124 @@ export const WireframeSections: React.FC = () => {
                 <div className="p-6 sm:p-8 border border-[#ccc] rounded flex flex-col justify-between bg-white h-full gap-6">
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-xs uppercase tracking-widest text-[#888] font-bold mb-1">Campus Address</h4>
-                      <p className="text-sm text-[#222]">IS Dev Samaj Senior Secondary School<br />Sector 21-C, Chandigarh &mdash; 160022</p>
+                      <div className="flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#0064ec] font-bold mb-1">
+                        <MapPin className="w-3.5 h-3.5 text-[#0064ec]" />
+                        <span>Campus Address</span>
+                      </div>
+                      <p className="text-sm text-[#222] font-semibold">
+                        I.S. Dev Samaj Senior Secondary School
+                      </p>
+                      <p className="text-xs text-[#555] mt-0.5">
+                        Sector 21-C, Chandigarh &mdash; 160022
+                      </p>
+                      <span className="inline-block mt-1.5 text-[11px] font-medium text-[#0064ec] bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
+                        Near Aroma Chowk &amp; Sector 21 Market
+                      </span>
                     </div>
+
                     <div>
-                      <h4 className="text-xs uppercase tracking-widest text-[#888] font-bold mb-1">Phone</h4>
-                      <p className="text-sm text-[#222]">+91 (0172) 270-XXXX &bull; +91 (0172) 271-XXXX</p>
+                      <div className="flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#888] font-bold mb-1">
+                        <Phone className="w-3.5 h-3.5 text-[#888]" />
+                        <span>Phone / Helpdesk</span>
+                      </div>
+                      <p className="text-sm text-[#222]">
+                        <a href="tel:01722704495" className="hover:text-[#0064ec] hover:underline">0172-2704495</a>
+                        {' '}&bull;{' '}
+                        <a href="tel:01722707255" className="hover:text-[#0064ec] hover:underline">0172-2707255</a>
+                      </p>
                     </div>
+
                     <div>
-                      <h4 className="text-xs uppercase tracking-widest text-[#888] font-bold mb-1">Email</h4>
-                      <p className="text-sm text-[#222]">info@isdevsamaj21.ac.in &bull; admissions@isdevsamaj21.ac.in</p>
+                      <div className="flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#888] font-bold mb-1">
+                        <Mail className="w-3.5 h-3.5 text-[#888]" />
+                        <span>Email</span>
+                      </div>
+                      <p className="text-sm text-[#222]">
+                        <a href="mailto:info@isdevsamaj21.ac.in" className="hover:text-[#0064ec] hover:underline">info@isdevsamaj21.ac.in</a>
+                        {' '}&bull;{' '}
+                        <a href="mailto:admissions@isdevsamaj21.ac.in" className="hover:text-[#0064ec] hover:underline">admissions@isdevsamaj21.ac.in</a>
+                      </p>
                     </div>
+
                     <div>
-                      <h4 className="text-xs uppercase tracking-widest text-[#888] font-bold mb-1">Office Hours</h4>
-                      <p className="text-sm text-[#222]">Monday &ndash; Saturday: 8:00 AM &ndash; 3:00 PM<br />Closed on 2nd Saturdays and Public Holidays</p>
+                      <div className="flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#888] font-bold mb-1">
+                        <Clock className="w-3.5 h-3.5 text-[#888]" />
+                        <span>Office Hours</span>
+                      </div>
+                      <p className="text-sm text-[#222]">
+                        Monday &ndash; Saturday: 8:00 AM &ndash; 2:30 PM<br />
+                        <span className="text-xs text-[#777]">Closed on 2nd Saturdays and Public Holidays</span>
+                      </p>
                     </div>
                   </div>
-                  <div>
+
+                  <div className="flex flex-wrap gap-3 pt-2">
                     <a href="mailto:info@isdevsamaj21.ac.in" className="wf-cta inline-block">
                       SEND AN INQUIRY
+                    </a>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=I.S.+Dev+Samaj+Senior+Secondary+School+Sector+21C+Chandigarh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded border border-[#bbb] hover:border-[#0064ec] text-[#222] hover:text-[#0064ec] bg-white text-xs font-semibold transition-colors"
+                    >
+                      <Navigation className="w-3.5 h-3.5 text-[#0064ec]" />
+                      Get Directions
                     </a>
                   </div>
                 </div>
               </ScrollPopBox>
+
               <ScrollPopBox direction="right" className="h-full">
-                <div className="wf-img-placeholder h-[320px] sm:h-full min-h-[320px]">
-                  CAMPUS LOCATION / INTERACTIVE MAP
+                <div className="relative border border-[#ccc] rounded-lg overflow-hidden bg-[#f4f4f4] h-full min-h-[380px] flex flex-col shadow-sm group">
+                  {/* Google Map Embedded iframe for I S Dev Samaj School Sector 21 Chandigarh */}
+                  <iframe
+                    title="I.S. Dev Samaj Senior Secondary School Map Location"
+                    src="https://maps.google.com/maps?q=I.S.+Dev+Samaj+Senior+Secondary+School,+Sector+21C,+Chandigarh,+160022&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    className="w-full h-full min-h-[380px] border-0 flex-grow"
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+
+                  {/* Top Location Bar Overlay */}
+                  <div className="absolute top-3 left-3 right-3 pointer-events-none flex justify-between items-start gap-2">
+                    <div className="pointer-events-auto bg-white/95 backdrop-blur-sm border border-[#ddd] px-3 py-2 rounded-md shadow-md max-w-xs">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-xs font-bold text-[#111]">I.S. Dev Samaj Sr. Sec. School</span>
+                      </div>
+                      <p className="text-[11px] text-[#555] mt-0.5">
+                        Sector 21-C, Chandigarh &bull; PIN 160022
+                      </p>
+                    </div>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=I.S.+Dev+Samaj+Senior+Secondary+School+Sector+21C+Chandigarh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pointer-events-auto inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/95 hover:bg-white text-[#0064ec] border border-[#ddd] hover:border-[#0064ec] text-xs font-semibold rounded-md shadow-md transition-colors"
+                      title="Open in Google Maps"
+                    >
+                      <span>View larger map</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+
+                  {/* Bottom Navigation Hint Bar */}
+                  <div className="bg-white border-t border-[#e0e0e0] px-4 py-2.5 flex items-center justify-between text-xs text-[#555]">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#0064ec]" />
+                      Behind Petrol Pump on Ambala Road, Sector 21-C
+                    </span>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=I.S.+Dev+Samaj+Senior+Secondary+School+Sector+21C+Chandigarh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-[#0064ec] hover:underline inline-flex items-center gap-1"
+                    >
+                      Directions &rarr;
+                    </a>
+                  </div>
                 </div>
               </ScrollPopBox>
             </div>
